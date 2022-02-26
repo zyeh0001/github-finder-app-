@@ -1,14 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import UserItem from './UserItem';
 import GithubContext from '../context/github/GithubContext';
-const axios = require('axios');
 
 function UserResults() {
   const { users, isLoading } = useContext(GithubContext);
-
-  //   useEffect(async () => {
-  //     fetchData();
-  //   }, []);
 
   if (isLoading) {
     return <h3>Loading...</h3>;

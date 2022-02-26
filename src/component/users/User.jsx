@@ -5,11 +5,7 @@ import React, { useContext, useEffect } from 'react';
 import GithubContext from '../context/github/GithubContext';
 import { useParams } from 'react-router-dom';
 import RepoList from '../repo/RepoList';
-import {
-  fetchUser,
-  getUserRepo,
-  getUserAndRepos,
-} from '../context/github/GithubActions';
+import { getUserAndRepos } from '../context/github/GithubActions';
 
 function User() {
   const { dispatch, user, isLoading, repos } = useContext(GithubContext);
@@ -46,7 +42,7 @@ function User() {
     //   dispatch({ type: 'GET_REPOS', payload: reposData });
     // };
     getAllUserData();
-  }, []);
+  }, [dispatch, params.login]);
 
   if (isLoading) {
     return <Spinner />;
